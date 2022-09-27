@@ -1,0 +1,34 @@
+*Application:
++The user will interact with the system via a command line interface where he/she can choose an option.
++The desktop application will not have any visual friendly frames
+
+*Vet:
++As a user I should be able to add a new veterinarian.I should be able to specify firstname/lastname/address/speciality
++As a user I should be able to view the details of an existing veterinarian.I should be able to view the following data:
+id/firstname/lastname/address/speciality.
++As a user I should be able to update all existing veterinarian by choosing the id.I should be able to edit:
+firstname/lastname/address/speciality.
++As a user I should be able to delete an existing veterinarian by choosing the id.
++As a user I should be able to view all vets. I should be able to view the following data:id/firstname/lastname/.
+
+*Pet:
++As a user I should be able to add a new pet.I should be able to specify ownerName/race/birthdate/isVaccinated.
++As a user I should be able to view the details of an existing pet.I should be able to view the following data:
+id/ownerName/race/birthdate/isVaccinated.
++As a user I should be able to update all existing pets by choosing the id.I should be able to edit:
+ownerName/race/birthdate/isVaccinated.
++As a user I should be able to delete an existing pet by choosing the id.
++As a user I should be able to view all pets. I should be able to view the following data:id/ownerName/race/.
+
+*Consult:
++As a user I should be able to add a consult.I should be able to specify: vet id (of an existing vet),
+pet id(of an existing pet),date,description.
++As a user I should be able to view all the consults. I should be able to view the following data:consult id,
+vet id (of an existing vet),pet id(of an existing pet),date,description.
++As a user I should be able to update only the description for a specific consult by choosing the id.
+
+*Import data:
++As a user I should be able to import all the data from a CSV file.
+
+*Optional:
++As a user I should be able to authenticate before using the application.
