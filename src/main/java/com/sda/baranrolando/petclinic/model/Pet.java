@@ -1,7 +1,7 @@
 package com.sda.baranrolando.petclinic.model;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -14,7 +14,7 @@ public class Pet {
     @Column(name = "race")
     private String race;
     @Column(name = "birthdate")
-    private Date date;
+    private Date birthDate;
     @Column(name = "is_vaccinated")
     private boolean isVaccinated;
     @Column(name = "owner_name")
@@ -27,10 +27,10 @@ public class Pet {
 
     }
 
-    public Pet(Integer id, String race, Date date, boolean isVaccinated, String ownerName, List<Consult> consults) {
+    public Pet(Integer id, String race, Date birthDate, boolean isVaccinated, String ownerName, List<Consult> consults) {
         this.id = id;
         this.race = race;
-        this.date = date;
+        this.birthDate = birthDate;
         this.isVaccinated = isVaccinated;
         this.ownerName = ownerName;
         this.consults = consults;
@@ -52,12 +52,12 @@ public class Pet {
         this.race = race;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public boolean isVaccinated() {
@@ -89,7 +89,7 @@ public class Pet {
         return "Pet{" +
                 "id=" + id +
                 ", race='" + race + '\'' +
-                ", date=" + date +
+                ", date=" + birthDate +
                 ", isVaccinated=" + isVaccinated +
                 ", ownerName='" + ownerName + '\'' +
                 '}';
