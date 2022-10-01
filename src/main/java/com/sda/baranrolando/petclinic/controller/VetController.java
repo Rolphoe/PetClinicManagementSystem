@@ -1,5 +1,6 @@
 package com.sda.baranrolando.petclinic.controller;
 
+import com.sda.baranrolando.petclinic.model.Vet;
 import com.sda.baranrolando.petclinic.service.VetService;
 
 import java.util.Scanner;
@@ -28,6 +29,12 @@ public class VetController {
         } catch (Exception e) {
             System.out.println("Internal server error: " + e.getMessage());
         }
+    }
 
+    public void showAllVets(){
+        System.out.println("Vet list: ");
+        for(Vet vet : vetService.getAllVets()){
+            System.out.println(vet.getId() + " " + vet.getFirstName() + " " + vet.getLastName());
+        }
     }
 }

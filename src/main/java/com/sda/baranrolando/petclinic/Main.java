@@ -24,7 +24,7 @@ public class Main {
                     vetController.createVet();
                     break;
                 case VIEW_ALL_VETS:
-                    System.out.println("Not implemented!");
+                    vetController.showAllVets();
                     break;
                 case UNKNOWN:
                     System.err.println("!INVALID OPTION SELECTED!");

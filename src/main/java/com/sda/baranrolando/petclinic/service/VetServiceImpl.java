@@ -1,6 +1,9 @@
 package com.sda.baranrolando.petclinic.service;
 
+import com.sda.baranrolando.petclinic.model.Vet;
 import com.sda.baranrolando.petclinic.repository.VetRepository;
+
+import java.util.List;
 
 public class VetServiceImpl implements VetService {
     private final VetRepository vetRepository;
@@ -25,4 +28,10 @@ public class VetServiceImpl implements VetService {
         }
         vetRepository.createVet(firstName, lastName, address, speciality);
     }
+
+    @Override
+    public List<Vet> getAllVets() {
+        return vetRepository.getAllVets();
+    }
+
 }
