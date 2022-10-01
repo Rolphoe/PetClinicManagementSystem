@@ -4,8 +4,10 @@ public enum UserOption {
     ADD_VET(1, "Add a new vet"),
     VIEW_ALL_VETS(2, "View all vets"),
     VIEW_VET_BY_ID(3, "View vet by Id"),
+    UPDATE_VET_BY_ID(4, "Update vet by id"),
     EXIT(99, "Exit application!"),
     UNKNOWN(999999, "Invalid Option selected!");
+
     private final int numericOption;
     private final String displayValue;
 
@@ -14,10 +16,10 @@ public enum UserOption {
         this.displayValue = displayValue;
     }
 
-    public static void displayAllOptions(){
+    public static void displayAllOptions() {
         System.out.println("");
         for (UserOption value : values()) {
-            if(value != UNKNOWN){
+            if (value != UNKNOWN) {
                 System.out.println(value.numericOption + " -> " + value.displayValue);
             }
 
@@ -25,15 +27,16 @@ public enum UserOption {
         }
     }
 
-    public static UserOption findByNumericOption(int numericOption){
-        for (UserOption value : UserOption.values()){
-            if(numericOption == value.getNumericOption()){
+    public static UserOption findByNumericOption(int numericOption) {
+        for (UserOption value : UserOption.values()) {
+            if (numericOption == value.getNumericOption()) {
                 return value;
             }
         }
         return UNKNOWN;
     }
-    public int getNumericOption(){
+
+    public int getNumericOption() {
         return numericOption;
     }
 

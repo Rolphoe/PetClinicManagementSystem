@@ -24,6 +24,7 @@ public class VetController {
         String address = scanner.nextLine();
         System.out.print("Please insert vet speciality: ");
         String speciality = scanner.nextLine();
+
         try {
             vetService.createVet(firstName, lastName, address, speciality);
         } catch (IllegalArgumentException e) {
@@ -33,28 +34,51 @@ public class VetController {
         }
     }
 
-    public void showAllVets(){
+    public void showAllVets() {
         System.out.println("Vet list: ");
-        for(Vet vet : vetService.getAllVets()){
+        for (Vet vet : vetService.getAllVets()) {
             System.out.println(vet.getId() + " " + vet.getFirstName() + " " + vet.getLastName());
         }
     }
 
-    public void showVetById(){
-        try{
+    public void showVetById() {
+        try {
             System.out.print("Please insert the id of the vet: ");
             int chooseId = scanner.nextInt();
             Optional<Vet> optionalVet = vetService.findById(chooseId);
-            if(optionalVet.isPresent()){
+            if (optionalVet.isPresent()) {
                 System.out.println("Vet result: ");
                 System.out.println(optionalVet.get());
             } else {
                 System.out.println("Vet not found!");
             }
-        }catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.println("!INVALID ID FORMAT!");
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Internal server error!" + e.getMessage());
+        }
+    }
+
+    public void updateVetById() {
+        try {
+            System.out.print("Please insert the id: ");
+            int id = Integer.parseInt(scanner.nextLine().trim());
+            System.out.print("Please insert vet first name: ");
+            String firstName = scanner.nextLine();
+            System.out.print("Please insert vet last name: ");
+            String lastName = scanner.nextLine();
+            System.out.print("Please insert vet address: ");
+            String address = scanner.nextLine();
+            System.out.print("Please insert vet speciality: ");
+            String speciality = scanner.nextLine();
+
+            vetService.updateVetByID(id, firstName, lastName, address, speciality);
+        } catch (NumberFormatException e) {
+            System.err.println("!INVALID ID FORMAT!");
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Internal server error " + e.getMessage());
         }
     }
 }

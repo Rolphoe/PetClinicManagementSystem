@@ -12,6 +12,16 @@ public interface VetService {
             String address,
             String speciality
     );
+
     List<Vet> getAllVets();
+
     Optional<Vet> findById(int id);
+
+    void updateVetByID(
+            int id,
+            String firstName,
+            String lastName,
+            String address,
+            String speciality
+    );
 }

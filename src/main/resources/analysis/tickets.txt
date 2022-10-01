@@ -8,7 +8,7 @@ DONE PCMS_4: Implement a way for the user to interact with the system.
 DONE PCMS_5:As a user I should be able to add a new veterinarian.I should be able to specify firstname/lastname/address/speciality
 DONE PCMS_6:As a user I should be able to view the details of an existing veterinarian.I should be able to view the following data:
 id/firstname/lastname/address/speciality.
-PCMS_7:As a user I should be able to update all existing veterinarian by choosing the id.I should be able to edit:
+DONE PCMS_7:As a user I should be able to update all existing veterinarian by choosing the id.I should be able to edit:
 firstname/lastname/address/speciality.
 PCMS_8:As a user I should be able to delete an existing veterinarian by choosing the id.
 DONE PCMS_9:As a user I should be able to view all vets. I should be able to view the following data:id/firstname/lastname/.

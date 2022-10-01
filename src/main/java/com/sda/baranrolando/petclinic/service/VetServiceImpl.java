@@ -40,4 +40,24 @@ public class VetServiceImpl implements VetService {
         return vetRepository.findById(id);
     }
 
+    @Override
+    public void updateVetByID(int id, String firstName, String lastName, String address, String speciality) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("id is invalid!");
+        }
+        if (firstName == null || firstName.isBlank()) {
+            throw new IllegalArgumentException("first name is invalid!");
+        }
+        if (lastName == null || lastName.isBlank()) {
+            throw new IllegalArgumentException("last name is invalid!");
+        }
+        if (address == null || address.isBlank()) {
+            throw new IllegalArgumentException("address is invalid!");
+        }
+        if (speciality == null || speciality.isBlank()) {
+            throw new IllegalArgumentException("speciality is invalid!");
+        }
+        vetRepository.updateVetById(id, firstName, lastName, address, speciality);
+    }
+
 }

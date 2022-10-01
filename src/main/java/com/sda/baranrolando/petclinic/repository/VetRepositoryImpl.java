@@ -32,7 +32,7 @@ public class VetRepositoryImpl implements VetRepository {
 
     @Override
     public List<Vet> getAllVets() {
-        try(Session session = SessionManager.getSessionFactory().openSession()){
+        try (Session session = SessionManager.getSessionFactory().openSession()) {
             List<Vet> allVets = session.createQuery("FROM Vet", Vet.class).getResultList();
             return allVets;
         }
@@ -40,9 +40,32 @@ public class VetRepositoryImpl implements VetRepository {
 
     @Override
     public Optional<Vet> findById(int id) {
-        try(Session session = SessionManager.getSessionFactory().openSession()){
-            Vet vet = session.find(Vet.class,id);
+        try (Session session = SessionManager.getSessionFactory().openSession()) {
+            Vet vet = session.find(Vet.class, id);
             return Optional.ofNullable(vet);
+        }
+    }
+
+    @Override
+    public void updateVetById(int id, String firstName, String lastName, String address, String speciality) {
+        try (Session session = SessionManager.getSessionFactory().openSession()) {
+            Vet vet = session.find(Vet.class, id);
+            if (vet != null) {
+                Transaction transaction = session.beginTransaction();
+                try {
+                    vet.setFirstName(firstName);
+                    vet.setLastName(lastName);
+                    vet.setAddress(address);
+                    vet.setSpeciality(speciality);
+                    session.saveOrUpdate(vet);
+                    transaction.commit();
+                } catch (Exception e) {
+                    transaction.rollback();
+                    throw new IllegalStateException(e);
+                }
+            } else {
+                throw new IllegalArgumentException("!VET ID NOT FOUND IN DATABASE!");
+            }
         }
     }
 }
