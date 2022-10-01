@@ -68,4 +68,23 @@ public class VetRepositoryImpl implements VetRepository {
             }
         }
     }
+
+    @Override
+    public void deleteVetById(int id) {
+        try (Session session = SessionManager.getSessionFactory().openSession()) {
+            Vet vet = session.find(Vet.class, id);
+            if (vet != null) {
+                Transaction transaction = session.beginTransaction();
+                try {
+                    session.remove(vet);
+                    transaction.commit();
+                } catch (Exception e) {
+                    transaction.rollback();
+                    throw new IllegalStateException(e);
+                }
+            } else {
+                throw new IllegalArgumentException("!VET ID NOT FOUND IN DATABASE!");
+            }
+        }
+    }
 }

@@ -15,17 +15,17 @@ public class Main {
         VetController vetController = new VetController(new VetServiceImpl(new VetRepositoryImpl()));
         UserOption userOption;
         Scanner scanner = new Scanner(System.in);
-        do{
-            try{
+        do {
+            try {
                 UserOption.displayAllOptions();
                 System.out.print("Please select an option: ");
                 int numericOption = Integer.parseInt(scanner.nextLine().trim());
                 userOption = UserOption.findByNumericOption(numericOption);
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 userOption = UserOption.UNKNOWN;
             }
 
-            switch(userOption){
+            switch (userOption) {
                 case ADD_VET:
                     vetController.createVet();
                     break;
@@ -38,6 +38,9 @@ public class Main {
                 case UPDATE_VET_BY_ID:
                     vetController.updateVetById();
                     break;
+                case DELETE_VET_BY_ID:
+                    vetController.deleteVetById();
+                    break;
                 case UNKNOWN:
                     System.err.println("!INVALID OPTION SELECTED!");
                     break;
@@ -45,7 +48,7 @@ public class Main {
                     System.out.println("Good-bye, have a nice day.");
                     break;
             }
-        }while(userOption != UserOption.EXIT);
+        } while (userOption != UserOption.EXIT);
         SessionManager.shutDown();
     }
 }

@@ -5,6 +5,7 @@ public enum UserOption {
     VIEW_ALL_VETS(2, "View all vets"),
     VIEW_VET_BY_ID(3, "View vet by Id"),
     UPDATE_VET_BY_ID(4, "Update vet by id"),
+    DELETE_VET_BY_ID(5, "Delete vet by id"),
     EXIT(99, "Exit application!"),
     UNKNOWN(999999, "Invalid Option selected!");
 
