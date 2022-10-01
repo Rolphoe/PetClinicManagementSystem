@@ -8,8 +8,9 @@ import java.util.List;
 @Table(name = "pet")
 public class Pet {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "race")
     private String race;
     @Column(name = "birthdate")
@@ -22,22 +23,24 @@ public class Pet {
     @OneToMany(mappedBy = "pet")
     private List<Consult> consults;
 
-    public Pet(){
+    public Pet() {
 
     }
-    public Pet(int id, String race, Date date, boolean isVaccinated, String ownerName) {
+
+    public Pet(Integer id, String race, Date date, boolean isVaccinated, String ownerName, List<Consult> consults) {
         this.id = id;
         this.race = race;
         this.date = date;
         this.isVaccinated = isVaccinated;
         this.ownerName = ownerName;
+        this.consults = consults;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
