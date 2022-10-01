@@ -3,6 +3,7 @@ package com.sda.baranrolando.petclinic.service;
 import com.sda.baranrolando.petclinic.model.Vet;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface VetService {
     void createVet(
@@ -11,6 +12,6 @@ public interface VetService {
             String address,
             String speciality
     );
-
     List<Vet> getAllVets();
+    Optional<Vet> findById(int id);
 }
