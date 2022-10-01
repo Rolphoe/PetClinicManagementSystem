@@ -1,7 +1,10 @@
 package com.sda.baranrolando.petclinic;
 
+import com.sda.baranrolando.petclinic.utils.SessionManager;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        SessionManager.getSessionFactory();
+        SessionManager.shutDown();
     }
 }
